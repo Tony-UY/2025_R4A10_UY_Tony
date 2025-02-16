@@ -1,0 +1,61 @@
+.header
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 16px 10%
+  background-color: white
+  margin-top: 2%
+
+.logotitre
+  display: flex
+  align-items: center
+  gap: 8px
+  color: #233348
+  font-size: 24px
+
+
+.logo
+  height: 32px
+  width: 32px
+
+.titre
+  font-size: 32px
+  font-weight: 600
+  color: #1f2937
+  margin-top: 4px
+
+.nav-links
+  display: flex
+  align-items: center
+  gap: 24px
+  list-style: none
+  padding: 0
+  margin: 0
+
+li
+  cursor: pointer
+
+#Home
+  color: #1F1534
+  font-family: Mulish, sans-serif
+  font-size: 18px
+  font-weight: 700
+
+@media (max-width: 600px)
+  .nav-links
+    display: none
+
+  .menu-btn
+    display: block
+    background: none
+    border: none
+    font-size: 24px
+    color: #1f2937
+    cursor: pointer
+
+@media (min-width: 1200px)
+  .nav-links
+    display: flex
+
+  .menu-btn
+    display: none
