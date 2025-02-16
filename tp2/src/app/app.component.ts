@@ -9,7 +9,7 @@ import {FooterComponent} from "./footer/footer.component";
 @Component({
   selector: 'app-root', // INDISPENSABLE PRESQUE
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, HealthcareComponent, ServicesComponent, CustomerComponent, FooterComponent],
+  imports: [ HeaderComponent, HealthcareComponent, ServicesComponent, CustomerComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass' // CSS
 })

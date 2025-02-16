@@ -13,7 +13,9 @@
     <div class="controls">
       <button (click)="prevSlide()">&#8592;</button>
       <div class="dots">
-        <span *ngFor="let i of [0, 1, 2]" [class.active]="i === currentIndex" (click)="goToSlide(i)"></span>
+        @for (i of [0, 1, 2]; track $index) {
+          <span [class.active]="i === currentIndex" (click)="goToSlide(i)"></span>
+        }
       </div>
       <button (click)="nextSlide()">&#8594;</button>
     </div>

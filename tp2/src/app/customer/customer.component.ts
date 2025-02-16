@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
   styleUrls: ['./customer.component.sass'],
-  imports: [
-    NgForOf
-  ],
   standalone: true
 })
 export class CustomerComponent {

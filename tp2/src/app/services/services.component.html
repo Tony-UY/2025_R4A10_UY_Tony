@@ -4,12 +4,14 @@
     <hr>
     <p>We provide to you the best choiches for you. Adjust it to your health needs and make sure your undergo treatment with our highly qualified doctors you can consult with us which type of service is suitable for your health</p>
     <div class="service-grid">
-      <div *ngFor="let service of services" class="service-item">
-        <div class="service-icon">
-          <img src="assets/{{ service.title}}.png" alt="{{ service.title }}"> </div>
-        <h3>{{ service.title }}</h3>
-        <p class="pspecial">{{ service.description }}</p>
-      </div>
+      @for (service of services; track $index) {
+        <div class="service-item">
+          <div class="service-icon">
+            <img src="assets/{{ service.title}}.png" alt="{{ service.title }}"> </div>
+          <h3>{{ service.title }}</h3>
+          <p class="pspecial">{{ service.description }}</p>
+        </div>
+      }
     </div>
     <button>Learn more</button>
   </div>

@@ -1,14 +1,9 @@
 import { Component } from '@angular/core';
-import {LowerCasePipe, NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
   standalone: true,
-  imports: [
-    NgForOf,
-    LowerCasePipe
-  ],
   styleUrls: ['./services.component.sass']
 })
 export class ServicesComponent {
