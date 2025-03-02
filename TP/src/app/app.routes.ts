@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {Page404Component} from "./page404/page404.component";
-import {DetailvoyageComponent} from "./detailvoyage/detailvoyage.component";
+import {DetailVoyageComponent} from "./detailvoyage/detailvoyage.component";
 import {GenVoyageComponent} from "./gen-voyage/gen-voyage.component";
 
 export const routes: Routes = [
@@ -19,7 +19,7 @@ export const routes: Routes = [
   },
   {
     path: 'detail/:id',
-    component: DetailvoyageComponent,
+    component: DetailVoyageComponent,
   },
   {
     path: '404',

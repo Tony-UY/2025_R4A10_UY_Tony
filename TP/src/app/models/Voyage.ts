@@ -1,13 +1,6 @@
-class Voyage {
-  id: number;
-  nom: string;
+export interface Voyage {
+  id: string;
+  destination: string;
   description: string;
-  price: number;
-  durée
-  constructor(message: string) {
-    this.greeting = message;
-  }
-
-
+  prix: number;
 }
-

@@ -1,1 +1,14 @@
-<p>gen-voyage works!</p>
+<div class="p-4">
+  <button (click)="generateVoyage()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+    Générer un voyage
+  </button>
+
+  <div [class.hidden]="!generatedVoyage" class="mt-4 bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-xl font-bold text-gray-800">{{ generatedVoyage?.destination }}</h3>
+    <p class="text-gray-600 mt-2">{{ generatedVoyage?.description }}</p>
+    <p class="text-blue-600 font-semibold mt-2">{{ generatedVoyage?.prix | currency: 'EUR' }}</p>
+    <button (click)="addVoyage()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors mt-4">
+      Ajouter ce voyage
+    </button>
+  </div>
+</div>
