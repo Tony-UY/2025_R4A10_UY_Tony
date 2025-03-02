@@ -1,12 +1,13 @@
 <div class="p-4">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
     @for (voyage of voyages; track voyage.id) {
       <div class="voyage-item bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
         <h3 class="text-xl font-bold text-gray-800">{{ voyage.destination }}</h3>
         <p class="text-gray-600">{{ voyage.description | slice: 0:20 }}...</p>
         <p class="text-blue-600 font-semibold">{{ voyage.prix | currency: 'EUR' }}</p>
         <div class="flex space-x-2 mt-4">
-          <a [routerLink]="['/voyage', voyage.id]" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+          <a [routerLink]="['/detail', voyage.id]" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
             Voir plus
           </a>
           <button (click)="deleteVoyage(voyage.id)" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors">
@@ -23,5 +24,6 @@
     <button (click)="nextPage()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
       Suivant
     </button>
+
   </div>
 </div>

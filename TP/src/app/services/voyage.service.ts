@@ -6,15 +6,28 @@ import { DESTINATIONS, DESCRIPTIONS, PRIX } from '../data';
   providedIn: 'root',
 })
 export class VoyageService {
+  private readonly STORAGE_KEY = 'voyages';
   private voyages: Voyage[] = [];
 
   constructor() {
-    this.addVoyage({
-      id: '1',
-      destination: 'Paris',
-      description: 'La ville des lumières et de la romance.',
-      prix: 500,
-    });
+    this.loadVoyages();
+    if (this.voyages.length === 0) {
+      this.addVoyage({
+        id: '1',
+        destination: 'Paris',
+        description: 'La ville des lumières et de la romance.',
+        prix: 500,
+      });
+    }
+  }
+
+  private loadVoyages(): void {
+    const voyages = localStorage.getItem(this.STORAGE_KEY);
+    this.voyages = voyages ? JSON.parse(voyages) : [];
+  }
+
+  private saveVoyages(): void {
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.voyages));
   }
 
   getVoyages(): Voyage[] {
@@ -23,24 +36,16 @@ export class VoyageService {
 
   addVoyage(voyage: Voyage): void {
     this.voyages.push(voyage);
+    this.saveVoyages();
   }
 
-  // @ts-ignore
-  getVoyageById(id: string): Voyage {
-    for (let i = 0; i < this.voyages.length; i++) {
-      if (this.voyages[i].id === id) {
-        return this.voyages[i];
-      }
-    }
+  getVoyageById(id: string): Voyage | undefined {
+    return this.voyages.find((voyage) => voyage.id === id);
   }
 
   deleteVoyage(id: string): void {
-    for (let i = 0; i < this.voyages.length; i++) {
-      if (this.voyages[i].id === id) {
-        this.voyages.splice(i, 1);
-        break;
-      }
-    }
+    this.voyages = this.voyages.filter((voyage) => voyage.id !== id);
+    this.saveVoyages();
   }
 
   generateRandomVoyage(): Voyage {
@@ -53,6 +58,7 @@ export class VoyageService {
       prix: PRIX[randomNumber],
     };
   }
+
   getPaginatedVoyages(page: number, pageSize: number): Voyage[] {
     const startIndex = (page - 1) * pageSize;
     const endIndex = startIndex + pageSize;
